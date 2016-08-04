@@ -1,0 +1,94 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+A polymer web component that shows status text.  Initially created to show the status of database queries.  Uses the amount of data, an error message, and whether the data is loading.
+
+Example:
+
+        <status-text
+          count="1"
+          error="Error!"
+          loading>
+        </status-text>
+
+@demo demo/index.html
+-->
+
+<dom-module id="status-text">
+  <template>
+    <template is="dom-if" if="[[showLoading(count, loading)]]">
+      <div>Loading...</div>
+    </template>
+    <template is="dom-if" if="[[showError(count, loading, error)]]">
+      <div>[[error]]</div>
+    </template>
+    <template is="dom-if" if="[[showEmpty(count, loading, error)]]">
+      <div>[[empty]]</div>
+    </template>
+  </template>
+
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'status-text',
+
+      properties: {
+        /**
+         * The amount of data.
+         */
+        count: {
+          type: Number,
+          value: 0
+        },
+
+        /**
+         * An error message.
+         */
+        error: {
+          type: String,
+          value: ''
+        },
+
+        /**
+         * Whether the data is currently loading.
+         */
+        loading: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * Text to show if count, error, and loading are all falsey.
+         */
+        empty: {
+          type: String,
+          value: 'No Data'
+        }
+      },
+
+      /**
+       * Returns whether to show the loading text.
+       */
+      showLoading: function(count, loading) {
+        return !count && loading;
+      },
+
+      /**
+       * Returns whether to show the error text.
+       */
+      showError: function(count, loading, error) {
+        return !count && !loading && !!error;
+      },
+
+      /**
+       * Returns whether to show the empty text.
+       */
+      showEmpty: function(count, loading, error) {
+        return !count && !loading && !error;
+      }
+    });
+  })();
+  </script>
+</dom-module>

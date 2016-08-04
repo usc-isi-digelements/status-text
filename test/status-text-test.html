@@ -1,0 +1,78 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+  <link rel="import" href="../status-text.html">
+</head>
+
+<body>
+  <test-fixture id="status-text-fixture">
+    <template>
+      <status-text></status-text>
+    </template>
+  </test-fixture>
+
+  <script>
+    suite('status-text', function() {
+      var component;
+
+      setup(function() {
+        component = fixture('status-text-fixture');
+      });
+
+      test('sets defaults', function() {
+        expect(component.count).to.equal(0);
+        expect(component.error).to.equal('');
+        expect(component.loading).to.be.false;
+        expect(component.empty).to.equal('No Data');
+      });
+
+      test('showLoading returns false with positive count', function() {
+        expect(component.showLoading(1, true)).to.be.false;
+      });
+
+      test('showLoading returns false with count 0 and not loading', function() {
+        expect(component.showLoading(0, false)).to.be.false;
+      });
+
+      test('showLoading returns true with count 0 and loading', function() {
+        expect(component.showLoading(0, true)).to.be.true;
+      });
+
+      test('showError returns false with positive count', function() {
+        expect(component.showError(1, false, {})).to.be.false;
+      });
+
+      test('showError returns false with count 0 and loading', function() {
+        expect(component.showError(0, true, {})).to.be.false;
+      });
+
+      test('showError returns false with count 0 and not loading and no error', function() {
+        expect(component.showError(0, false, null)).to.be.false;
+      });
+
+      test('showError returns true with count 0 and not loading and error', function() {
+        expect(component.showError(0, false, {})).to.be.true;
+      });
+
+      test('showEmpty returns false with positive count', function() {
+        expect(component.showEmpty(1, false, null)).to.be.false;
+      });
+
+      test('showEmpty returns false with count 0 and loading', function() {
+        expect(component.showEmpty(0, true, null)).to.be.false;
+      });
+
+      test('showEmpty returns false with count 0 and not loading and error', function() {
+        expect(component.showEmpty(0, false, {})).to.be.false;
+      });
+
+      test('showEmpty returns true with count 0 and not loading and no error', function() {
+        expect(component.showEmpty(0, false, null)).to.be.true;
+      });
+    });
+  </script>
+</body>
+</html>
