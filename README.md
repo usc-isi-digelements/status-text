@@ -1,6 +1,6 @@
 # status-text
 
-A Polymer Element showing status text.  Initially created to show the status of database queries.  Uses the amount of data, an error message, and whether the data is loading.
+A Polymer Element showing status text as loading, error, empty, or blank.  Initially created to show the status of database queries.  Uses the amount of data, an error message, and whether the data is loading.
 
 ### Example
 ```html
