@@ -1,8 +1,8 @@
 # status-text
 
-A polymer web component that shows status text.  Initially created to show the status of database queries.  Uses the amount of data, an error message, and whether the data is loading.
+A Polymer Element showing status text.  Initially created to show the status of database queries.  Uses the amount of data, an error message, and whether the data is loading.
 
-Example:
+### Example
 ```html
     <status-text
       count="[[queryResults.length]]"

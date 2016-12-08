@@ -16,61 +16,61 @@
 
   <script>
     suite('status-text', function() {
-      var component;
+      var element;
 
       setup(function() {
-        component = fixture('status-text-fixture');
+        element = fixture('status-text-fixture');
       });
 
       test('sets defaults', function() {
-        expect(component.count).to.equal(0);
-        expect(component.error).to.equal('');
-        expect(component.loading).to.be.false;
-        expect(component.empty).to.equal('No Data');
+        expect(element.count).to.equal(0);
+        expect(element.error).to.equal('');
+        expect(element.loading).to.be.false;
+        expect(element.empty).to.equal('No Data');
       });
 
-      test('showLoading returns false with positive count', function() {
-        expect(component.showLoading(1, true)).to.be.false;
+      test('_showLoading returns false with positive count', function() {
+        expect(element._showLoading(1, true)).to.be.false;
       });
 
-      test('showLoading returns false with count 0 and not loading', function() {
-        expect(component.showLoading(0, false)).to.be.false;
+      test('_showLoading returns false with count 0 and not loading', function() {
+        expect(element._showLoading(0, false)).to.be.false;
       });
 
-      test('showLoading returns true with count 0 and loading', function() {
-        expect(component.showLoading(0, true)).to.be.true;
+      test('_showLoading returns true with count 0 and loading', function() {
+        expect(element._showLoading(0, true)).to.be.true;
       });
 
-      test('showError returns false with positive count', function() {
-        expect(component.showError(1, false, {})).to.be.false;
+      test('_showError returns false with positive count', function() {
+        expect(element._showError(1, false, {})).to.be.false;
       });
 
-      test('showError returns false with count 0 and loading', function() {
-        expect(component.showError(0, true, {})).to.be.false;
+      test('_showError returns false with count 0 and loading', function() {
+        expect(element._showError(0, true, {})).to.be.false;
       });
 
-      test('showError returns false with count 0 and not loading and no error', function() {
-        expect(component.showError(0, false, null)).to.be.false;
+      test('_showError returns false with count 0 and not loading and no error', function() {
+        expect(element._showError(0, false, null)).to.be.false;
       });
 
-      test('showError returns true with count 0 and not loading and error', function() {
-        expect(component.showError(0, false, {})).to.be.true;
+      test('_showError returns true with count 0 and not loading and error', function() {
+        expect(element._showError(0, false, {})).to.be.true;
       });
 
-      test('showEmpty returns false with positive count', function() {
-        expect(component.showEmpty(1, false, null)).to.be.false;
+      test('_showEmpty returns false with positive count', function() {
+        expect(element._showEmpty(1, false, null)).to.be.false;
       });
 
-      test('showEmpty returns false with count 0 and loading', function() {
-        expect(component.showEmpty(0, true, null)).to.be.false;
+      test('_showEmpty returns false with count 0 and loading', function() {
+        expect(element._showEmpty(0, true, null)).to.be.false;
       });
 
-      test('showEmpty returns false with count 0 and not loading and error', function() {
-        expect(component.showEmpty(0, false, {})).to.be.false;
+      test('_showEmpty returns false with count 0 and not loading and error', function() {
+        expect(element._showEmpty(0, false, {})).to.be.false;
       });
 
-      test('showEmpty returns true with count 0 and not loading and no error', function() {
-        expect(component.showEmpty(0, false, null)).to.be.true;
+      test('_showEmpty returns true with count 0 and not loading and no error', function() {
+        expect(element._showEmpty(0, false, null)).to.be.true;
       });
     });
   </script>

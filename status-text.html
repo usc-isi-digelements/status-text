@@ -1,28 +1,28 @@
 <link rel="import" href="../polymer/polymer.html">
 
 <!--
-A polymer web component that shows status text.  Initially created to show the status of database queries.  Uses the amount of data, an error message, and whether the data is loading.
+A Polymer Element showing status text.  Initially created to show the status of database queries.  Uses the amount of data, an error message, and whether the data is loading.
 
-Example:
+### Example
 
-        <status-text
-          count="1"
-          error="Error!"
-          loading>
-        </status-text>
+    <status-text
+        count="1"
+        error="Error!"
+        loading>
+    </status-text>
 
 @demo demo/index.html
 -->
 
 <dom-module id="status-text">
   <template>
-    <template is="dom-if" if="[[showLoading(count, loading)]]">
+    <template is="dom-if" if="[[_showLoading(count, loading)]]">
       <div>Loading...</div>
     </template>
-    <template is="dom-if" if="[[showError(count, loading, error)]]">
+    <template is="dom-if" if="[[_showError(count, loading, error)]]">
       <div>[[error]]</div>
     </template>
-    <template is="dom-if" if="[[showEmpty(count, loading, error)]]">
+    <template is="dom-if" if="[[_showEmpty(count, loading, error)]]">
       <div>[[empty]]</div>
     </template>
   </template>
@@ -37,6 +37,9 @@ Example:
       properties: {
         /**
          * The amount of data.
+         *
+         * @type {Number}
+         * @default 0
          */
         count: {
           type: Number,
@@ -45,6 +48,9 @@ Example:
 
         /**
          * An error message.
+         *
+         * @type {String}
+         * @default ''
          */
         error: {
           type: String,
@@ -53,6 +59,9 @@ Example:
 
         /**
          * Whether the data is currently loading.
+         *
+         * @type {Boolean}
+         * @default false
          */
         loading: {
           type: Boolean,
@@ -61,6 +70,9 @@ Example:
 
         /**
          * Text to show if count, error, and loading are all falsey.
+         *
+         * @type {String}
+         * @default 'No Data'
          */
         empty: {
           type: String,
@@ -70,22 +82,39 @@ Example:
 
       /**
        * Returns whether to show the loading text.
+       *
+       * @param {Number} count
+       * @param {Boolean} loading
+       * @return {Boolean}
+       * @private
        */
-      showLoading: function(count, loading) {
+      _showLoading: function(count, loading) {
         return !count && loading;
       },
 
       /**
        * Returns whether to show the error text.
+       *
+       * @param {Number} count
+       * @param {Boolean} loading
+       * @param {String} error
+       * @return {Boolean}
+       * @private
        */
-      showError: function(count, loading, error) {
+      _showError: function(count, loading, error) {
         return !count && !loading && !!error;
       },
 
       /**
        * Returns whether to show the empty text.
+       *
+       * @param {Number} count
+       * @param {Boolean} loading
+       * @param {String} error
+       * @return {Boolean}
+       * @private
        */
-      showEmpty: function(count, loading, error) {
+      _showEmpty: function(count, loading, error) {
         return !count && !loading && !error;
       }
     });

@@ -1,10 +1,10 @@
 {
   "name": "status-text",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors": [
     "Next Century Corporation"
   ],
-  "description": "",
+  "description": "A Polymer Element showing status text.  Initially created to show the status of database queries.  Uses the amount of data, an error message, and whether the data is loading.",
   "keywords": [
     "web-component",
     "polymer"
@@ -17,10 +17,10 @@
     "/test/"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.2.0"
+    "polymer": "Polymer/polymer#^1.7.0"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "web-component-tester": "^4.0.0"
+    "iron-component-page": "PolymerElements/iron-component-page#^1.1.7",
+    "web-component-tester": "^5.0.0"
   }
 }
