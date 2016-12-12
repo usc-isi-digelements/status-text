@@ -4,7 +4,7 @@
   "authors": [
     "Next Century Corporation"
   ],
-  "description": "A Polymer Element showing status text as loading, error, empty, or blank.",
+  "description": "A Polymer Element showing status text as loading, error, empty (no data), or blank (no status).",
   "keywords": [
     "web-component",
     "polymer"

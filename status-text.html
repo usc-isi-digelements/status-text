@@ -1,15 +1,16 @@
 <link rel="import" href="../polymer/polymer.html">
 
 <!--
-A Polymer Element showing status text as loading, error, empty, or blank.  Initially created to show the status of database queries.  Uses the amount of data, an error message, and whether the data is loading.
+A Polymer Element showing status text as loading, error, empty (no data), or blank (no status).  Initially created to show the status of database queries.  Uses the amount of data, an error message, and whether the data is loading.
 
 ### Example
-
-    <status-text
-        count="1"
-        error="Error!"
-        loading>
-    </status-text>
+```html
+<status-text
+  count="1"
+  error="Error!"
+  loading>
+</status-text>
+```
 
 @demo demo/index.html
 -->
@@ -36,6 +37,8 @@ A Polymer Element showing status text as loading, error, empty, or blank.  Initi
 
       properties: {
         /**
+         * (Optional)
+         *
          * The amount of data.
          *
          * @type {Number}
@@ -47,6 +50,8 @@ A Polymer Element showing status text as loading, error, empty, or blank.  Initi
         },
 
         /**
+         * (Optional)
+         *
          * An error message.
          *
          * @type {String}
@@ -58,6 +63,8 @@ A Polymer Element showing status text as loading, error, empty, or blank.  Initi
         },
 
         /**
+         * (Optional)
+         *
          * Whether the data is currently loading.
          *
          * @type {Boolean}
@@ -69,6 +76,8 @@ A Polymer Element showing status text as loading, error, empty, or blank.  Initi
         },
 
         /**
+         * (Optional)
+         *
          * Text to show if count, error, and loading are all falsey.
          *
          * @type {String}
