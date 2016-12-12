@@ -22,11 +22,40 @@
         element = fixture('status-text-fixture');
       });
 
-      test('sets defaults', function() {
+      test('sets defaults', function(done) {
         expect(element.count).to.equal(0);
         expect(element.error).to.equal('');
         expect(element.loading).to.be.false;
         expect(element.empty).to.equal('No Data');
+
+        flush(function() {
+          expect(element._showEmpty(element.count, element.loading, element.error)).to.be.true;
+          expect(Polymer.dom(element.root).querySelectorAll('div').length).to.equal(1);
+          expect(element.$$('div').textContent).to.equal('No Data');
+          done();
+        });
+      });
+
+      test('is showLoading returns true, show correct div', function(done) {
+        element.loading = true;
+
+        flush(function() {
+          expect(element._showEmpty(element.count, element.loading, element.error)).to.be.false;
+          expect(Polymer.dom(element.root).querySelectorAll('div').length).to.equal(1);
+          expect(element.$$('div').textContent).to.equal('Loading...');
+          done();
+        });
+      });
+
+      test('is showError returns true, show correct div', function(done) {
+        element.error = 'error message';
+
+        flush(function() {
+          expect(element._showEmpty(element.count, element.loading, element.error)).to.be.false;
+          expect(Polymer.dom(element.root).querySelectorAll('div').length).to.equal(1);
+          expect(element.$$('div').textContent).to.deep.equal(element.error);
+          done();
+        });
       });
 
       test('_showLoading returns false with positive count', function() {
