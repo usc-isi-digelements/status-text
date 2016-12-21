@@ -1,10 +1,9 @@
 {
   "name": "status-text",
-  "version": "1.0.1",
-  "authors": [
-    "Next Century Corporation"
-  ],
   "description": "A Polymer Element showing status text as loading, error, empty (no data), or blank (no status).",
+  "version": "1.0.1",
+  "authors": ["Next Century Corporation"],
+  "license": "Apache-2.0",
   "keywords": [
     "web-component",
     "polymer"
