@@ -59,6 +59,8 @@ limitations under the License.
           expect(element._showEmpty(element.count, element.loading, element.error)).to.be.false;
           expect(Polymer.dom(element.root).querySelectorAll('div').length).to.equal(1);
           expect(element.$$('div').textContent).to.equal('Loading...');
+          expect(element.$$('paper-spinner')).to.exist;
+          expect(element.$$('paper-spinner').active).to.be.true;
           done();
         });
       });
