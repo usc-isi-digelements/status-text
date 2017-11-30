@@ -43,6 +43,7 @@ limitations under the License.
         expect(element.error).to.equal('');
         expect(element.loading).to.be.false;
         expect(element.empty).to.equal('No Data');
+        expect(element.label).to.equal('');
 
         flush(function() {
           expect(element._showEmpty(element.count, element.loading, element.error)).to.be.true;
@@ -52,20 +53,21 @@ limitations under the License.
         });
       });
 
-      test('is showLoading returns true, show correct div', function(done) {
+      test('if showLoading returns true, show correct div', function(done) {
+        element.label = 'Data';
         element.loading = true;
 
         flush(function() {
           expect(element._showEmpty(element.count, element.loading, element.error)).to.be.false;
           expect(Polymer.dom(element.root).querySelectorAll('div').length).to.equal(1);
-          expect(element.$$('div').textContent).to.equal('Loading...');
+          expect(element.$$('div').textContent).to.equal('Loading Data...');
           expect(element.$$('paper-spinner')).to.exist;
           expect(element.$$('paper-spinner').active).to.be.true;
           done();
         });
       });
 
-      test('is showError returns true, show correct div', function(done) {
+      test('if showError returns true, show correct div', function(done) {
         element.error = 'error message';
 
         flush(function() {

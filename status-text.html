@@ -54,7 +54,7 @@ A Polymer Element showing status text as loading, error, empty (no data), or bla
     </style>
 
     <template is="dom-if" if="[[_showLoading(count, loading)]]">
-      <div class="flex">Loading...</div>
+      <div class="flex">Loading [[label]]...</div>
       <paper-spinner active></paper-spinner>
     </template>
     <template is="dom-if" if="[[_showError(count, loading, error)]]">
@@ -95,6 +95,19 @@ A Polymer Element showing status text as loading, error, empty (no data), or bla
          * @default ''
          */
         error: {
+          type: String,
+          value: ''
+        },
+
+        /**
+         * (Optional)
+         *
+         * A label.
+         *
+         * @type {String}
+         * @default ''
+         */
+        label: {
           type: String,
           value: ''
         },
