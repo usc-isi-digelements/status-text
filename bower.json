@@ -9,7 +9,7 @@
     "polymer"
   ],
   "main": "status-text.html",
-  "homepage": "https://github.com/DigElements/status-text/",
+  "homepage": "https://github.com/usc-isi-digelements/status-text/",
   "ignore": [
     "/.*",
     "/test/"
